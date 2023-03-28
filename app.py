@@ -44,4 +44,3 @@ def display_visuals_d3():
     return render_template("creative.html")
 
 
-app.run(host='0.0.0.0', port=81)
