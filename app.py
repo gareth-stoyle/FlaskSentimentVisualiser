@@ -54,4 +54,4 @@ def handleMessage(data):
     emit("new_message",data,broadcast=True)
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True, port=5004)
+    socketio.run(app, debug=True)
