@@ -46,7 +46,7 @@ def display_visuals_d3():
     return render_template("creative.html")
 
 @app.route('/chat')
-def display_visuals_d3():
+def display_chat():
     return render_template("chat.html")
 
 @socketio.on("message")
