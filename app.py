@@ -1,8 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response, redirect
+from flask_socketio import SocketIO, send, emit
 import csv
 import itertools
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 @app.route('/')
 def index():
@@ -43,4 +45,10 @@ def display_data_d3():
 def display_visuals_d3():
     return render_template("creative.html")
 
+@app.route('/chat')
+def display_visuals_d3():
+    return render_template("chat.html")
 
+@socketio.on("message")
+def handleMessage(data):
+    emit("new_message",data,broadcast=True)
